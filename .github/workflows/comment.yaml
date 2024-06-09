@@ -1,0 +1,33 @@
+name: Add new BibTeX item
+on:
+  issues:
+    types: [opened]
+permissions:
+  pull-requests: write
+  contents: write
+jobs:
+  new:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.title, '/new')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract identifiers
+        id: extract-identifiers
+        run: |
+          echo identifiers=$(echo "${{ github.event.issue.title }}" | grep -oE '/new .*' | head -n1 | cut -c5- | xargs echo -n) >> $GITHUB_OUTPUT
+      - name: Run wenxian
+        run: pipx run uv tool run wenxian from $INPUT_IDENTIFIER -o
+        env:
+          INPUT_IDENTIFIER: ${{ steps.extract-identifiers.outputs.identifiers }}
+      - name: Create a PR
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b wenxian/$INPUT_IDENTIFIER
+          git add .
+          git commit -m "Add BibTeX item from indentifier $INPUT_IDENTIFIER" -m "Fix #${{ github.event.issue.number }}. Powered by wenxian."
+          git push origin wenxian/$INPUT_IDENTIFIER --force
+          gh pr create -f
+        env:
+          INPUT_IDENTIFIER: ${{ steps.extract-identifiers.outputs.identifiers }}
+          GH_TOKEN: ${{ github.token }}
