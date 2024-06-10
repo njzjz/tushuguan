@@ -13,10 +13,11 @@ if __name__ == "__main__":
     for entry in bib_database.entries:
         entry_type = entry.entry_type
         entry_key = entry.key
-        short_journal = entry_key.split("_")[1]
-        expected_filename = Path().joinpath(
-            entry_type, short_journal, f"{entry_key}.bib"
-        )
+        expected_filename = Path(entry_type)
+        if entry_type.lower() == "article":
+            short_journal = entry_key.split("_")[1]
+            expected_filename /= short_journal
+        expected_filename /= f"{entry_key}.bib"
         if filename != expected_filename:
             # make directory
             expected_filename.parent.mkdir(parents=True, exist_ok=True)
