@@ -1,11 +1,14 @@
 name: Combine BiBTeX
 on:
   push:
-  #  branches:
-  #    - master
+    branches:
+      - master
 jobs:
   combine:
     runs-on: ubuntu-latest
+    environment:
+      name: bibtex
+      url: ${{ steps.upload-artifact.outputs.artifact-url }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./
