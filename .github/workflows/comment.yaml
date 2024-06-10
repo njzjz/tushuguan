@@ -11,6 +11,11 @@ jobs:
     if: contains(github.event.issue.title, '/new')
     steps:
       - uses: actions/checkout@v4
+      - name: Cache pre-commit
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit/
+          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
       - name: Extract identifiers
         id: extract-identifiers
         run: |
