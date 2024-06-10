@@ -1,0 +1,18 @@
+name: "use-tushuguan"
+description: "Use the merged BibTeX file in another workflow."
+inputs:
+  output:
+    description: "Output filename."
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Get number of CPU cores
+      uses: SimenB/github-actions-cpu-cores@v2
+      id: cpu-cores
+    - name: Create output directory
+      run: mkdir -p $(dirname ${{ inputs.output }})
+      shell: bash
+    - name: Combine BiBTeX
+      run: find ${{ github.action_path }} -name "*.bib" -type f -print0 | xargs -0 -n 1 -P ${{ steps.cpu-cores.outputs.count }} cat > ${{ inputs.output }}
+      shell: bash
