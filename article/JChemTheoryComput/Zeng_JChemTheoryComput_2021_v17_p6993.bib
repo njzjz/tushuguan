@@ -1,48 +1,51 @@
 @article{Zeng_JChemTheoryComput_2021_v17_p6993,
-	author = {Jinzhe Zeng and Timothy J. Giese and {\c{S}}{\"o}len Ekesan and Darrin
-             M. York},
-	title = {{Development of Range-Corrected Deep Learning Potentials for Fast,
-             Accurate Quantum Mechanical/Molecular Mechanical Simulations of
-             Chemical Reactions in Solution}},
-	journal = {J. Chem. Theory Comput.},
-	year = {2021},
-	volume = {17},
-	number = {11},
-	pages = {6993--7009},
-	doi = {10.1021/acs.jctc.1c00201},
-	abstract = {We develop a new deep potential─range correction (DPRc) machine
-             learning potential for combined quantum mechanical/molecular
-             mechanical (QM/MM) simulations of chemical reactions in the condensed
-             phase. The new range correction enables short-ranged QM/MM
-             interactions to be tuned for higher accuracy, and the correction
-             smoothly vanishes within a specified cutoff. We further develop an
-             active learning procedure for robust neural network training. We test
-             the DPRc model and training procedure against a series of six
-             nonenzymatic phosphoryl transfer reactions in solution that are
-             important in mechanistic studies of RNA-cleaving enzymes.
-             Specifically, we apply DPRc corrections to a base QM model and test
-             its ability to reproduce free-energy profiles generated from a target
-             QM model. We perform these comparisons using the MNDO/d and DFTB2
-             semiempirical models because they differ in the way they treat orbital
-             orthogonalization and electrostatics and produce free-energy profiles
-             which differ significantly from each other, thereby providing us a
-             rigorous stress test for the DPRc model and training procedure. The
-             comparisons show that accurate reproduction of the free-energy
-             profiles requires correction of the QM/MM interactions out to 6
-             {\r{A}}. We further find that the model's initial training benefits
-             from generating data from temperature replica exchange simulations and
-             including high-temperature configurations into the fitting procedure,
-             so the resulting models are trained to properly avoid high-energy
-             regions. A single DPRc model was trained to reproduce four different
-             reactions and yielded good agreement with the free-energy profiles
-             made from the target QM/MM simulations. The DPRc model was further
-             demonstrated to be transferable to 2D free-energy surfaces and 1D
-             free-energy profiles that were not explicitly considered in the
-             training. Examination of the computational performance of the DPRc
-             model showed that it was fairly slow when run on CPUs but was sped up
-             almost 100-fold when using NVIDIA V100 GPUs, resulting in almost
-             negligible overhead. The new DPRc model and training procedure provide
-             a potentially powerful new tool for the creation of next-generation
-             QM/MM potentials for a wide spectrum of free-energy applications
-             ranging from drug discovery to enzyme design.}
+  title        = {
+    {Development of Range-Corrected Deep Learning Potentials for Fast, Accurate
+    Quantum Mechanical/Molecular Mechanical Simulations of Chemical Reactions
+    in Solution}
+  },
+  author       = {
+    Jinzhe Zeng and Timothy J. Giese and {\c{S}}{\"o}len Ekesan and Darrin M.
+    York
+  },
+  year         = 2021,
+  journal      = {J. Chem. Theory Comput.},
+  volume       = 17,
+  number       = 11,
+  pages        = {6993--7009},
+  doi          = {10.1021/acs.jctc.1c00201},
+  abstract     = {
+    We develop a new deep potential─range correction (DPRc) machine learning
+    potential for combined quantum mechanical/molecular mechanical (QM/MM)
+    simulations of chemical reactions in the condensed phase. The new range
+    correction enables short-ranged QM/MM interactions to be tuned for higher
+    accuracy, and the correction smoothly vanishes within a specified cutoff.
+    We further develop an active learning procedure for robust neural network
+    training. We test the DPRc model and training procedure against a series of
+    six nonenzymatic phosphoryl transfer reactions in solution that are
+    important in mechanistic studies of RNA-cleaving enzymes. Specifically, we
+    apply DPRc corrections to a base QM model and test its ability to reproduce
+    free-energy profiles generated from a target QM model. We perform these
+    comparisons using the MNDO/d and DFTB2 semiempirical models because they
+    differ in the way they treat orbital orthogonalization and electrostatics
+    and produce free-energy profiles which differ significantly from each
+    other, thereby providing us a rigorous stress test for the DPRc model and
+    training procedure. The comparisons show that accurate reproduction of the
+    free-energy profiles requires correction of the QM/MM interactions out to 6
+    {\r{A}}. We further find that the model's initial training benefits from
+    generating data from temperature replica exchange simulations and including
+    high-temperature configurations into the fitting procedure, so the
+    resulting models are trained to properly avoid high-energy regions. A
+    single DPRc model was trained to reproduce four different reactions and
+    yielded good agreement with the free-energy profiles made from the target
+    QM/MM simulations. The DPRc model was further demonstrated to be
+    transferable to 2D free-energy surfaces and 1D free-energy profiles that
+    were not explicitly considered in the training. Examination of the
+    computational performance of the DPRc model showed that it was fairly slow
+    when run on CPUs but was sped up almost 100-fold when using NVIDIA V100
+    GPUs, resulting in almost negligible overhead. The new DPRc model and
+    training procedure provide a potentially powerful new tool for the creation
+    of next-generation QM/MM potentials for a wide spectrum of free-energy
+    applications ranging from drug discovery to enzyme design.
+  },
 }
