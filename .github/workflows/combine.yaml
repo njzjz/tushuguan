@@ -1,6 +1,8 @@
 name: Combine BiBTeX
 on:
   push:
+    branches:
+      - master
 jobs:
   combine:
     runs-on: ubuntu-latest
