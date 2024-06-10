@@ -1,0 +1,24 @@
+name: Combine BiBTeX
+on:
+  push:
+    branches:
+      - master
+jobs:
+  combine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get number of CPU cores
+        uses: SimenB/github-actions-cpu-cores@v2
+        id: cpu-cores
+      - name: Combine BiBTeX
+        run: mkdir -p dist && find . -name "*.bib" -type f -print0 | xargs -0 -n 1 -P ${{ steps.cpu-cores.outputs.count }} cat > dist/combined.bib
+      - name: Archive combine BiBTeX
+        uses: actions/upload-artifact@v4
+        id: upload-artifact
+        with:
+          name: dist-combined-bib
+          path: |
+            dist/combined.bib
+      - name: Output artifact URL
+        run: echo 'Artifact URL is ${{ steps.upload-artifact.outputs.artifact-url }}'
