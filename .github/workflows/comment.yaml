@@ -31,6 +31,7 @@ jobs:
           git checkout -b wenxian/$INPUT_IDENTIFIER
           git add .
           pipx run uv tool run pre-commit run --show-diff-on-failure --color=always -a || git add .
+          pipx run uv tool run pre-commit run --show-diff-on-failure --color=always -a || git add .
           git commit -m "Add BibTeX item from indentifier $INPUT_IDENTIFIER" -m "Fix #${{ github.event.issue.number }}. Powered by wenxian."
           git push origin wenxian/$INPUT_IDENTIFIER --force
           gh pr create -f
