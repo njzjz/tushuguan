@@ -29,3 +29,16 @@ repos:
           - --encode-urls
           - --remove-empty-fields
           - --wrap=80
+  # Python
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.8
+    hooks:
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: check-bibtex
+        name: check-bibtex
+        entry: python .scripts/check-bibtex.py
+        language: python
+        types: [bib]
+        additional_dependencies: ["bibtexparser==2.0.0b7"]
