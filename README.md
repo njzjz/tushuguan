@@ -21,6 +21,9 @@ The pre-commit will run to automatically fix the format of the ${\mathrm{B{\scri
 
 #### Add a reference from an identifier
 
+> [!NOTE]
+> Go to `Settings` > `Actions` > `General` > `Workflow permissions` and click `Allow GitHub Actions to create and approve pull requests`.
+
 Open a new issue with the title `/new <DOI>`, such as `/new 10.1063/5.0155600`.
 Powered by [`wenxian`](https://github.com/njzjz/wenxian), a pull request will be automatically created.
 
