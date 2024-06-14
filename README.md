@@ -35,7 +35,7 @@ Click the `Deployments` > `bibtex` on the right side to download the merged ${\m
 
 #### Use in an external LaTeX project
 
-Use the library as a GitHub Actions step in an external $\latex$ project.
+Use the library as a GitHub Actions step in an external $\LaTeX$ project.
 
 > [!NOTE]
 > If the library is private, go to `Settings` > `Actions` > `General` > `Access` to make it Accessible from other repositories.
