@@ -4,6 +4,7 @@ from pathlib import Path
 
 import bibtexparser
 
+
 def check_bibtex(filename: Path):
     with open(filename) as bibtex_file:
         bibtex_string = bibtex_file.read()
