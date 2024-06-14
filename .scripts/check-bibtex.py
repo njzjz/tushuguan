@@ -15,7 +15,10 @@ def check_bibtex(filename: Path):
         entry_key = entry.key
         expected_filename = Path(entry_type)
         if entry_type.lower() == "article":
-            short_journal = entry_key.split("_")[1]
+            try:
+                short_journal = entry_key.split("_")[1]
+            except KeyError:
+                short_journal = "Unknown"
             expected_filename /= short_journal
         expected_filename /= f"{entry_key}.bib"
         if filename != expected_filename:
