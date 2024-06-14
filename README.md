@@ -13,7 +13,7 @@ Click [Use this template](https://github.com/new?template_name=tushuguan&templat
 #### Add a `.bib` file via a pull request
 
 Add a ${\mathrm{B{\scriptstyle{IB}} T_{\displaystyle E} X}}$ file with items via a pull request.
-The items with the `@aricle` type are expected to have a `<FirstName>_<Year>_<JournalAbbr>_v<Volume>_p<Page>` key, for example, [`Zeng_JChemPhys_2023_v159_p054801`](./article/JChemPhys/Zeng_JChemPhys_2023_v159_p054801.bib).
+The items with the `@aricle` type are expected to have a `<LastName>_<Year>_<JournalAbbr>_v<Volume>_p<Page>` key, for example, [`Zeng_JChemPhys_2023_v159_p054801`](./article/JChemPhys/Zeng_JChemPhys_2023_v159_p054801.bib).
 The pre-commit will run to automatically fix the format of the ${\mathrm{B{\scriptstyle{IB}} T_{\displaystyle E} X}}$ file.
 
 > [!NOTE]
