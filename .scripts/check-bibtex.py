@@ -4,8 +4,8 @@ from pathlib import Path
 
 import bibtexparser
 
-if __name__ == "__main__":
-    filename = Path(sys.argv[1])
+
+def check_bibtex(filename: Path):
     with open(filename) as bibtex_file:
         bibtex_string = bibtex_file.read()
     bib_database = bibtexparser.parse_string(bibtex_string)
@@ -33,3 +33,8 @@ if __name__ == "__main__":
         os.remove(filename)
     elif rm.count(False) > 1:
         raise ValueError("More than one entry in the same file")
+
+
+if __name__ == "__main__":
+    for filename in sys.argv[1:]:
+        check_bibtex(Path(filename))
