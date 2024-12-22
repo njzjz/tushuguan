@@ -36,6 +36,12 @@ Powered by [`wenxian`](https://github.com/njzjz/wenxian), a pull request will be
 
 Click the `Deployments` > `bibtex` on the right side to download the merged ${\mathrm{B{\scriptstyle{IB}} T_{\displaystyle E} X}}$ file.
 
+Or use the [GitHub CLI](https://cli.github.com/):
+
+```sh
+gh run download -R njzjz/tushuguan -n dist-combined-bib
+```
+
 #### Use in an external LaTeX project on GitHub
 
 Use the library as a GitHub Actions step in an external $\LaTeX$ project.
